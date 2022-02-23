@@ -1,7 +1,9 @@
+import React, {useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
-import { SiEthereum } from 'react-icons/si';
-import { BsInfoCircle } from 'react-icons/bs';
+import { SiEthereum } from "react-icons/si";
+import { BsInfoCircle } from "react-icons/bs";
 
+import { TransactionContext } from "../context/TransactionContext";
 import {Loader} from './';
 
 //Styles we're using for the borders below "Connect Wallet" 
@@ -21,14 +23,11 @@ const Input = ({placeholder, name, type, value, handleChange}) => (
 
 
 const Welcome = () => {
-
-    //Function to connect to wallet
-    const connectWallet = () => {
-    }
+    const { connectWallet } = useContext(TransactionContext);
 
     const handleSubmit = () => {
 
-    }
+    };
 
     //Welcome page
     //From L58 We're desigining ethereum card and changing the position of welcome message to left
@@ -73,7 +72,7 @@ const Welcome = () => {
                 <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
                     <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorphism">
                         <div className="flex justify-between flex-col w-full h-full">
-                            <div classname="flex justify-between  flex-col w-full h-full">
+                            <div className="flex justify-between  flex-col w-full h-full">
                                 <div className="flex justify-between items-start"> 
                                     <div className="w-10 h-10 rounded-full border-white flex justify-center items-center">
                                         <SiEthereum fontSize={21} color="#fff" />
