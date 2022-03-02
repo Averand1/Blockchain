@@ -1,10 +1,7 @@
-const Loader = () => {
-    return (
-        <div className="flex justify-center items-center py-3">
-            <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full" role="status">
-                <span className="visually-hidden"></span>
-            </div>
-        </div>       
-    );
-}
-export default Loader;  
+const Loader = () => (
+    <div className="flex justify-center items-center py-3">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-red-700" />
+    </div>
+  );
+  
+  export default Loader;
