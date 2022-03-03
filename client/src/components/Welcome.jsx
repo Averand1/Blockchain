@@ -1,10 +1,10 @@
-import React, {useContext } from "react";
+import React, {useContext,useEffect } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
 import { TransactionContext } from "../context/TransactionContext";
-import {Loader} from './';
+import {Loader} from '.';
 import {shortenAddress} from "../utils/shortenAddress";
 
 //Styles we're using for the borders below "Connect Wallet" 
@@ -24,6 +24,7 @@ const Input = ({placeholder, name, type, value, handleChange}) => (
 
 
 const Welcome = () => {
+    // console.log(useContext(TransactionContext))
     const { connectWallet, currentAccount, formData, setFormData,  sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
@@ -36,6 +37,10 @@ const Welcome = () => {
         sendTransaction();
 
     }; 
+
+    useEffect(()=>{
+        console.log(isLoading,'---------------===-----',typeof(isLoading))
+    },[isLoading])
  
     //Welcome page
     //From L58 We're desigining ethereum card and changing the position of welcome message to left
@@ -110,27 +115,19 @@ const Welcome = () => {
 
                          <div className="h-[1px] w-full bg-gray-400"/>
 
-                         {false ? (
-                             <Loader />
-                             
-                         ) : (
-                             <button
+                         {isLoading
+                         ? <Loader />
+                         : (
+                            <button
                                 type="button"
                                 onClick={handleSubmit}
                                 className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
-                             >
+                            >
                                 Send Now
-                             </button>
+                            </button>
                          )}
-
                      </div>
-
-
-
-
-
                 </div>
-                
             </div> 
         </div>
     )

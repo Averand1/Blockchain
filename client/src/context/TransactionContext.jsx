@@ -21,7 +21,7 @@ export const TransactionProvider = ({children}) => {
 
     const [currentAccount, setCurrentAccount] = useState('');
     const [formData, setFormData] = useState({addressTo:'', amount:'', keyword:'', message:''});
-    const [isLoading, setIsLoading] = useState('false');
+    const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('Transaction count'));
     const [transactions, setTransaction] = useState([])
 
@@ -115,7 +115,7 @@ export const TransactionProvider = ({children}) => {
     const sendTransaction = async () => {
         
         try {
-            if(!ethereum) return alert("Please install MetaMask");
+            if(ethereum) {
             const { addressTo, amount, keyword, message} = formData;
             const transactionContract = getEthereumContract();
             const parsedAmount = ethers.utils.parseEther(amount);
@@ -143,8 +143,13 @@ export const TransactionProvider = ({children}) => {
             const transactionCount = await transactionContract.getTransactionCount();
 
             setTransactionCount(transactionCount.toNumber())
+            window.location.reload();
             //get the Data from the Form
-        } catch (error) {
+        } else {
+            console.log('No ethereum object');
+        } 
+    }
+        catch (error) {
             console.log(error);
 
             throw new Error("No ethereum object");
