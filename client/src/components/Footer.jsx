@@ -13,7 +13,7 @@ const Footer = () => {
                     <p className="text-white text-base text-center mx-2 cursor-pointer">Wallets</p>
                 </div>
             </div>
-            <div className="flex justify-centere items-center flex-col mt-5">
+            <div className="flex justify-center items-center flex-col mt-5">
                 <p className="text-white text-sm text-center">Come join us</p>
                 <p className="text-white text-sm text-center">info@kryptoverse.com</p>
 
