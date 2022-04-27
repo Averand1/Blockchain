@@ -44,7 +44,7 @@ const Services = () => {
                  <ServiceCard
                     color="bg-[#F84550]"
                     title="Fastest transactions"
-                    icon={<RiHeart2Fill fontSize={22} className="text-white" />}
+                    icon={<RiHeart2Fill fontSize={22} className="text-black" />}
                     subtitle="Security is guaranted. We always maintain privacy and quality of our product"    
                 />
             </div>
