@@ -1,6 +1,6 @@
-# SimpleCryptoSender
+# Krypt
 
-SimpleCryptoSender is a user-friendly blockchain application that allows you to send cryptocurrency seamlessly. With this tool, you can connect your wallet, find the recipient's account number, and include a memorable keyword. The transaction record will be displayed on the site along with a relevant GIF corresponding to the keyword, making the experience enjoyable and personalized.
+Krypt is a user-friendly blockchain application that allows you to send cryptocurrency seamlessly. With this tool, you can connect your wallet, find the recipient's account number, and include a memorable keyword. The transaction record will be displayed on the site along with a relevant GIF corresponding to the keyword, making the experience enjoyable and personalized.
 
 ## Technologies
 
