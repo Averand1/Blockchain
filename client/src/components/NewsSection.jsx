@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../../src/news.css"
+import rapidApiKey from '../config';
 
 const NewsSection = () => {
   const [news, setNews] = useState([]);
@@ -31,7 +32,7 @@ const NewsSection = () => {
   }, []);
 
   return (
-    <div className="news-container"> {/* Add the className here */}
+    <div className="news-container">
       <h2>Cryptocurrency News</h2>
       {loading ? (
         <p>Loading news...</p>
