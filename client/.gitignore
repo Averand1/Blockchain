@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+/home/sleeper/react/Blockchain/node_modules/*
+.gitignore
 
 # Editor directories and files
 .vscode/*

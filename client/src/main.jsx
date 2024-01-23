@@ -1,16 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-import './index.css'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter
+import './index.css';
+import App from './App';
 import { TransactionProvider } from './context/TransactionContext';
-
 ReactDOM.render(
-  <TransactionProvider> 
-    <React.StrictMode>
-      <App/>
-    </React.StrictMode>
-    </TransactionProvider>,
-document.getElementById('root')
+  <Router> {/* Wrap your entire application with BrowserRouter */}
+    <TransactionProvider> {/* Wrap TransactionProvider around the Router */}
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </TransactionProvider>
+  </Router>,
+  document.getElementById('root')
 
 )
