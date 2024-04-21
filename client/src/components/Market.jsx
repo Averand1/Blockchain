@@ -1,51 +1,50 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../market.css'; // Import the CSS file for styling
 
 const Market = () => {
-  const [marketData, setMarketData] = useState([]);
+  const [cryptoData, setCryptoData] = useState([]);
 
   useEffect(() => {
-    const fetchMarketData = async () => {
+    const fetchCryptoData = async () => {
       try {
-        const response = await fetch('https://api.coincap.io/v2/markets');
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        const data = await response.json();
-
-        if (data && data.data) {
-          const sortedData = data.data.slice().sort((a, b) => {
-            return a.baseId.localeCompare(b.baseId);
-          });
-          setMarketData(sortedData);
-        }
+        const response = await axios.get(
+          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false',
+          {
+            headers: {
+              'accept': 'application/json',
+              'x-cg-demo-api-key': 'CG-bR4XW1MNM9nsTiUym2o8dxER'
+            }
+          }
+        );
+        setCryptoData(response.data);
       } catch (error) {
-        console.error('Error fetching market data:', error);
+        console.error('Error fetching crypto data:', error);
       }
     };
 
-    fetchMarketData();
+    fetchCryptoData();
   }, []);
 
   return (
     <div className="market-container">
-      <h1>Cryptocurrency Market</h1>
-      <table className="coin-table">
+      <h1>Top Cryptocurrencies</h1>
+      <table className="crypto-table">
         <thead>
           <tr>
-            <th>Coin Name</th>
+            <th>Image</th>
             <th>Symbol</th>
             <th>Price (USD)</th>
-            <th>Quote Symbol</th>
+            <th>Total Volume</th>
           </tr>
         </thead>
         <tbody>
-          {marketData.map((coin, index) => (
-            <tr className="coin-item" key={index}>
-              <td>{coin.baseId}</td>
-              <td>{coin.baseSymbol}</td>
-              <td>{coin.priceUsd}</td>
-              <td>{coin.quoteSymbol}</td>
+          {cryptoData.map((crypto, index) => (
+            <tr key={index}>
+              <td><img src={crypto.image} alt={crypto.name} style={{ width: '50px' }} /></td>
+              <td>{crypto.symbol.toUpperCase()}</td>
+              <td>${crypto.current_price}</td>
+              <td>${crypto.total_volume}</td>
             </tr>
           ))}
         </tbody>
