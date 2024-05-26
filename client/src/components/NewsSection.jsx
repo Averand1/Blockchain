@@ -8,12 +8,13 @@ const NewsSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const apiKey = import.meta.env.VITE_RAPIDAPI_API_KEY
     const fetchNews = async () => {
       const options = {
         method: 'GET',
         url: 'https://crypto-news16.p.rapidapi.com/news/top/10',
         headers: {
-          'X-RapidAPI-Key': '4a600f67c5mshe4ee6fe7ab4a04cp1aa8ddjsn205f846d4471',
+          'X-RapidAPI-Key': apiKey,
           'X-RapidAPI-Host': 'crypto-news16.p.rapidapi.com',
         },
       };
