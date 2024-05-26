@@ -1,0 +1,34 @@
+.tutorial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .tutorial-item {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tutorial-item h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .tutorial-item p {
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .tutorial-item a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .tutorial-item a:hover {
+    text-decoration: underline;
+  }
+  

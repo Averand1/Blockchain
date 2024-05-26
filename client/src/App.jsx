@@ -6,7 +6,8 @@ import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
 import { Footer, Services } from './components';
 import NewsSection from './components/NewsSection';
-
+import Tutorials from './components/Tutorials';
+import Wallet from './components/Wallet';
 const App = () => {
   return (
       <div className="min-h-screen">
@@ -17,6 +18,8 @@ const App = () => {
             <Route path="/market" element={<Market />} />
             <Route path="/exchange" element={<Exchange />} />
             <Route path="/news" element={<NewsSection/>}/>
+            <Route path="/tutorials" element={<Tutorials/>} />
+            <Route path="/wallet" element={<Wallet/>} />
             {/* Other routes if needed */}
           </Routes>
         </div>
