@@ -8,12 +8,15 @@ const Market = () => {
   useEffect(() => {
     const fetchCryptoData = async () => {
       try {
+        // Access the environment variable directly from import.meta.env
+        const apiKey = import.meta.env.VITE_COINGECKO_API_KEY;
+
         const response = await axios.get(
           'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false',
           {
             headers: {
               'accept': 'application/json',
-              'x-cg-demo-api-key': 'CG-bR4XW1MNM9nsTiUym2o8dxER'
+              'x-cg-demo-api-key': apiKey // Use the environment variable here
             }
           }
         );
@@ -22,7 +25,7 @@ const Market = () => {
         console.error('Error fetching crypto data:', error);
       }
     };
-
+  
     fetchCryptoData();
   }, []);
 
