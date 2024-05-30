@@ -14,8 +14,7 @@ const Routes = () => {
         <Route path="/market" component={Market} />
         <Route path="/exchange" component={Exchange} />
         <Route path="/tutorials" component={Tutorials} />
-        <Route path="/wallet" component={Wallet} />
-      </Switch>
+]      </Switch>
     </Router>
   );
 };

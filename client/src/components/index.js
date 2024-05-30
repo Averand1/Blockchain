@@ -5,4 +5,3 @@ export { default as Transactions } from './Transactions';
 export { default as Welcome } from './Welcome';
 export { default as Footer} from './Footer';
 export { default as Tutorials} from './Tutorials'
-export { default as Wallet} from './Wallet'
