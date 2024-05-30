@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
-
 pragma solidity ^0.8.0; 
 
-// Solidity is a combination of many diff programming languages Java. JS. C++, etc
-
 contract Transactions {
-    uint256 transactionCount;
+    uint256 public transactionCount;
 
     event Transfer(address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
 
@@ -18,11 +15,8 @@ contract Transactions {
         string keyword;
     }
     
-    //An array of TransferStruct objects, an array of objects
-    TransferStruct[] transactions;
+    TransferStruct[] public transactions;
 
-
-    //Public: Everybody can access this function
     function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
         transactionCount += 1;
         transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
@@ -32,13 +26,9 @@ contract Transactions {
 
     function getAllTransactions() public view returns (TransferStruct[] memory) {
         return transactions;
-
     }
 
-    function getAllTransactionCount() public view returns (uint256) {
-        return transactionCount;
-
+    function getTransactionCount() public view returns (uint256) {
+        return transactions.length;
     }
-
-
 }

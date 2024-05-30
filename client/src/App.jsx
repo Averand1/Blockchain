@@ -19,7 +19,6 @@ const App = () => {
             <Route path="/exchange" element={<Exchange />} />
             <Route path="/news" element={<NewsSection/>}/>
             <Route path="/tutorials" element={<Tutorials/>} />
-            <Route path="/wallet" element={<Wallet/>} />
             {/* Other routes if needed */}
           </Routes>
         </div>
